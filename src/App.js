@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+//import '.components/Counter'
+import Counter from './components/Counter';
 
 function App() {
+  const [inputVal, inputValChanger] = useState('initial text');
+  //const [state, stateChangerMethod] = useState(initial_state);
+  //likes = 111;
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      My app is working
+      <h1>{inputVal}</h1>
+      <input 
+        type='text' 
+        value={inputVal}
+        onChange={event => inputValChanger( event.target.value )}
+        />
+        <p>Это пример двустороннего связывания</p>
+      <hr/>
+        <Counter arg={{name:"счетчик дней", initval:30}}/>
+        <Counter arg={{name:"счетчик людей", initval:13}}/>
+        
     </div>
   );
 }
